@@ -6,6 +6,7 @@ from fpdf.enums import Align, CellBordersLayout, XPos, YPos
 
 
 class Resume:
+    BULLET = '\u2022'
     ENDASH = '\u2013'
 
     def __init__(self, config: Path):
@@ -17,7 +18,7 @@ class Resume:
         self.pdf = FPDF()
 
         self.pdf.add_font('Helvetica Neue', style='', fname='HelveticaNeue.otf')
-        self.pdf.add_font('Helvetica Neue', style='b', fname='HelveticaNeueBold.otf')
+        self.pdf.add_font('Helvetica Neue', style='B', fname='HelveticaNeueBold.otf')
         self.pdf.set_font('Helvetica Neue')
 
         self.pdf.add_page()
@@ -37,16 +38,16 @@ class Resume:
     def add_row(self, data: list[str]):
         row = []
         colspan = 2 if len(data) == 1 else 1
-        for text in data:
-            row.append((text, colspan))
+        for text, align in zip(data, [Align.L, Align.R]):
+            row.append((text, align, colspan))
         self.rows.append(row)
 
     def _generate_table(self):
-        with self.pdf.table(col_widths=(1, 1), first_row_as_headings=False, markdown=True) as table:
+        with self.pdf.table(col_widths=(6, 4), first_row_as_headings=False, markdown=True, line_height=6) as table:
             for cell in self.rows:
-                for text, colspan in cell:
-                    row = table.row()
-                    row.cell(text, colspan=colspan, border=CellBordersLayout.NONE)
+                row = table.row()
+                for text, align, colspan in cell:
+                    row.cell(text, colspan=colspan, border=CellBordersLayout.NONE, align=align)
 
     def output(self):
         self._generate_table()
@@ -57,13 +58,23 @@ def main():
     resume = Resume(Path('resume.yaml'))
 
     resume.add_heading(resume.data['name'], 24)
-    resume.add_heading(resume.data['heading'], 12)
+    resume.add_heading(resume.data['heading'], 10)
 
     experiences = resume.data['sections']['experiences']
     resume.add_row(['**PROFESSIONAL EXPERIENCES**'])
     for experience in experiences:
         resume.add_row([
-            f"**{experience['company']}** {Resume.ENDASH} {experience['title']}"
+            f"**{experience['company']}** {Resume.ENDASH} {experience['title']}",
+            f"{experience['start_date']} {Resume.ENDASH} {experience['end_date']}"
+        ])
+        resume.add_row([f"{Resume.BULLET}\t\t" + f"\n{Resume.BULLET}\t\t".join(experience['highlights'])])
+    resume.add_row('')
+
+    education = resume.data['sections']['education']
+    resume.add_row(['**EDUCATION**'])
+    for edu in education:
+        resume.add_row([
+            f"**{edu['institution']}** {Resume.ENDASH} {edu['degree']}"
         ])
 
     resume.output()
