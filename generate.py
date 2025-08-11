@@ -29,10 +29,15 @@ class Resume:
         self.pdf.set_font_size(font_size)
         self.pdf.cell(self.page_width, self.line_height, text=text, align=Align.C, new_x=XPos.LMARGIN, new_y=YPos.NEXT)
 
-    def add_row(self, data: list[str], style: TextEmphasis = TextEmphasis.NONE):
+    def add_row(self, data: list[str]):
         row = []
         colspan = 2 if len(data) == 1 else 1
         for text in data:
+            if text.startswith('**') and text.endswith('**'):
+                text = text[2:-2]
+                style = TextEmphasis.B
+            else:
+                style = TextEmphasis.NONE
             row.append((text, style, colspan))
         self.rows.append(row)
 
@@ -57,7 +62,7 @@ def main():
     resume.add_heading(resume.data['heading'], 12)
 
     for section in resume.data['sections']:
-        resume.add_row([section.upper()], TextEmphasis.B)
+        resume.add_row(['**' + section.upper() + '**'])
 
     resume.output()
 
