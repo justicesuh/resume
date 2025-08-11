@@ -2,7 +2,7 @@ import yaml
 from pathlib import Path
 
 from fpdf import FPDF
-from fpdf.enums import Align, CellBordersLayout, TextEmphasis, XPos, YPos
+from fpdf.enums import Align, CellBordersLayout, XPos, YPos
 
 
 class Resume:
@@ -33,22 +33,15 @@ class Resume:
         row = []
         colspan = 2 if len(data) == 1 else 1
         for text in data:
-            if text.startswith('**') and text.endswith('**'):
-                text = text[2:-2]
-                style = TextEmphasis.B
-            else:
-                style = TextEmphasis.NONE
-            row.append((text, style, colspan))
+            row.append((text, colspan))
         self.rows.append(row)
 
     def _generate_table(self):
-        with self.pdf.table(col_widths=(1, 1), first_row_as_headings=False) as table:
+        with self.pdf.table(col_widths=(1, 1), first_row_as_headings=False, markdown=True) as table:
             for cell in self.rows:
-                for text, style, colspan in cell:
+                for text, colspan in cell:
                     row = table.row()
-                    self.pdf.set_font(self.font_family, style=style)
                     row.cell(text, colspan=colspan, border=CellBordersLayout.NONE)
-                    self.pdf.set_font(self.font_family, style=TextEmphasis.NONE)
 
     def output(self):
         self._generate_table()
