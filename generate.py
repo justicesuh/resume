@@ -6,17 +6,22 @@ from fpdf.enums import Align, CellBordersLayout, XPos, YPos
 
 
 class Resume:
+    ENDASH = '\u2013'
+
     def __init__(self, config: Path):
         self.config = config
         self.load_data()
 
-        self.font_family = 'Helvetica'
         self.rows = []
 
         self.pdf = FPDF()
+
+        self.pdf.add_font('Helvetica Neue', style='', fname='HelveticaNeue.otf')
+        self.pdf.add_font('Helvetica Neue', style='b', fname='HelveticaNeueBold.otf')
+        self.pdf.set_font('Helvetica Neue')
+
         self.pdf.add_page()
         self.pdf.set_margins(12.5, 12.5, 12.5)
-        self.pdf.set_font(self.font_family)
 
         self.page_width = self.pdf.w - self.pdf.l_margin - self.pdf.r_margin
         self.line_height = 8
@@ -54,8 +59,12 @@ def main():
     resume.add_heading(resume.data['name'], 24)
     resume.add_heading(resume.data['heading'], 12)
 
-    for section in resume.data['sections']:
-        resume.add_row(['**' + section.upper() + '**'])
+    experiences = resume.data['sections']['experiences']
+    resume.add_row(['**PROFESSIONAL EXPERIENCES**'])
+    for experience in experiences:
+        resume.add_row([
+            f"**{experience['company']}** {Resume.ENDASH} {experience['title']}"
+        ])
 
     resume.output()
 
