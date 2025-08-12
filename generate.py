@@ -84,10 +84,16 @@ def main():
 
     education = resume.data['sections']['education']
     resume.add_row(['**EDUCATION**'], color=Resume.NAVY_BLUE)
-    for edu in education:
-        resume.add_row([
-            f"**{edu['institution']}** {Resume.ENDASH} {edu['degree']}"
-        ])
+    for i, edu in enumerate(education):
+        if i == len(education) - 1:
+            resume.add_row([f"**{edu['institution']}** {Resume.ENDASH} {edu['degree']}"], 3)
+        else:
+            resume.add_row([f"**{edu['institution']}** {Resume.ENDASH} {edu['degree']}"])
+
+    skills = resume.data['sections']['skills']
+    resume.add_row(['**SKILLS**'], color=Resume.NAVY_BLUE)
+    for skill in skills:
+        resume.add_row([f"**{skill['title']}**: {skill['content']}"])
 
     resume.output()
 
