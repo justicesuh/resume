@@ -19,7 +19,7 @@ class Resume:
 
         self.rows = []
 
-        self.pdf = FPDF()
+        self.pdf = FPDF(format='letter')
 
         self.pdf.add_font('Helvetica Neue', style='', fname='HelveticaNeue.otf')
         self.pdf.add_font('Helvetica Neue', style='B', fname='HelveticaNeueBold.otf')
@@ -80,7 +80,7 @@ def main():
             f"**{experience['company']}** {Resume.ENDASH} {experience['title']}",
             f"{experience['start_date']} {Resume.ENDASH} {experience['end_date']}"
         ])
-        resume.add_row([f"{Resume.BULLET}\t\t" + f"\n{Resume.BULLET}\t\t".join(experience['highlights'])], 3)
+        resume.add_row([f"{Resume.BULLET}\t\t\t\t" + f"\n{Resume.BULLET}\t\t\t\t".join(experience['highlights'])], 3)
 
     education = resume.data['sections']['education']
     resume.add_row(['**EDUCATION**'], color=Resume.NAVY_BLUE)
