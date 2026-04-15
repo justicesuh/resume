@@ -1,5 +1,6 @@
 name: Justice Suh
-heading: (703) 478-4381 | justice.suh@gmail.com | www.justicesuh.com
+heading: justice.suh@gmail.com | github.com/justicesuh | linkedin.com/in/justicesuh
+
 sections:
   experiences:
     - company: Prometheus Federal Services
@@ -7,67 +8,76 @@ sections:
       start_date: May 2023
       end_date: February 2025
       highlights:
-        - Engineered AI application utilizing RAG with Django, React, and Azure Cognitive Services
-        - Designed and implemented custom PowerApps applications to digitize manual processes
+        - Architected a distributed RAG-based AI system using Django and Azure Cognitive Services
+        - Scaled high-throughput ingestion and retrieval pipelines for AI-driven applications
+
     - company: Adlucent
       title: Solutions Architect
       start_date: April 2022
       end_date: May 2023
       highlights:
-        - Architected real-time analytics platform using GCP, Django, and React
-        - Implemented continuous integration and delivery, reducing build times by 62% and costs by 97%
+        - Designed and deployed real-time analytics platform for large-scale event processing using GCP, Django, and React
+        - Automated infrastructure and CI/CD pipelines, reducing build times 62% and costs 97%
+
     - company: Node40
       title: Software Engineer
       start_date: August 2021
       end_date: March 2022
       highlights:
-        - Developed and maintained libraries to eight crypto exchanges
-        - Automated deployment of code and infrastructure to AWS
+        - Integrated multiple cryptocurrency exchanges for financial data pipelines
+        - Streamlined infrastructure provisioning and deployments using AWS
+
     - company: Ridgeline International
       title: Senior Software Engineer
       start_date: January 2018
       end_date: August 2021
       highlights:
-        - Created tools to automate provisioning of mobile devices
-        - Developed ingestion pipeline to facilitate geospatial data analytics using Node.js, Kafka, and Kotlin
-        - Built firmware for embedded IoT platforms using C and Lisp
+        - Engineered embedded firmware in C and Lisp for resource-constrained IoT devices
+        - Developed automated tooling for provisioning and managing mobile devices at scale
+        - Architected virtualized Android (AOSP) environments using ARM/QEMU for debugging and analysis
+
     - company: Students of Georgetown Inc.
       title: Software Engineer
       start_date: October 2015
       end_date: December 2017
       highlights:
-        - Migrated network and hosting infrastructure to cloud, saving 85% in department costs
-        - Led code reviews to mentor new engineers and improve code quality
+        - Led cloud migration, reducing costs 85% and improving reliability
+
     - company: Pigeonly
       title: Software Engineer
       start_date: February 2014
       end_date: May 2015
       highlights:
-        - Created a centralized search engine for inmate population data using Django, Celery, and Mechanize
-        - Migrated codebase from Symfony to Django
+        - Built distributed search and data processing systems using Django and Celery
+        - Redesigned and migrated legacy systems from Symfony to scalable Django architecture
+
     - company: Atlas Research
       title: IT Analyst
       start_date: September 2012
       end_date: January 2014
       highlights:
-        - Assisted with special projects improving operations for firm with $60 million in annual revenue
-        - Responsible for IT systems integration and tier 1 support
+        - Supported enterprise system integration and production troubleshooting across environments
+
     - company: Turtle Software
       title: Freelance Developer
       start_date: February 2010
       end_date: August 2012
       highlights:
-        - Designed extensible bot engine for popular MMORPG
-        - Created custom Minecraft mods in Java
+        - Analyzed and reverse engineered obfuscated binaries using static analysis and decompilation tools
+        - Built automation tools for interacting with complex software systems
+
   education:
     - institution: Quantic School of Business and Technology
-      degree: Executive Master of Business Administration
+      degree: Executive MBA
     - institution: American University
-      degree: Master of Science in Computer Science
-    - institution: American University
-      degree: Bachelor of Science in Computer Science
+      degree: BS Computer Science; MS Computer Science
+
   skills:
     - title: Languages
-      content: Python, JavaScript, Java, PHP, SQL
+      content: Python, TypeScript, Java, C, Bash
     - title: Technologies
-      content: Django, FastAPI, Node.js, React, Postgres, Symfony, Docker, GCP
+      content: Django, FastAPI, React, Postgres, Docker
+    - title: Embedded
+      content: Firmware development (ESP32), IoT platforms, reverse engineering (Ghidra)
+    - title: Other
+      content: AOSP, ATAK ecosystem familiarity
