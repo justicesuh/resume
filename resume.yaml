@@ -8,15 +8,16 @@ sections:
       start_date: May 2023
       end_date: February 2025
       highlights:
-        - Architected a distributed RAG-based AI system using Django and Azure Cognitive Services
-        - Scaled high-throughput ingestion and retrieval pipelines for AI-driven applications
+        - Architected a distributed RAG-based AI platform using Django and Azure Cognitive Services
+        - Designed and scaled high-throughput ingestion and retrieval pipelines for AI-driven applications
+        - Built data-processing services supporting document ingestion, indexing, search, and downstream AI workflows
 
     - company: Adlucent
       title: Solutions Architect
       start_date: April 2022
       end_date: May 2023
       highlights:
-        - Designed and deployed real-time analytics platform for large-scale event processing using GCP, Django, and React
+        - Designed and deployed a real-time ELT platform for event processing using GCP, Django, Kafka, and BigQuery
         - Automated infrastructure and CI/CD pipelines, reducing build times 62% and costs 97%
 
     - company: Node40
@@ -24,8 +25,8 @@ sections:
       start_date: August 2021
       end_date: March 2022
       highlights:
-        - Integrated multiple cryptocurrency exchanges for financial data pipelines
-        - Streamlined infrastructure provisioning and deployments using AWS
+        - Built data ingestion and normalization pipelines from multiple cryptocurrency exchanges and external APIs
+        - Streamlined AWS infrastructure provisioning and deployments to improve development efficiency
 
     - company: Ridgeline International
       title: Senior Software Engineer
@@ -33,15 +34,16 @@ sections:
       end_date: August 2021
       highlights:
         - Engineered embedded firmware in C and Lisp for resource-constrained IoT devices
-        - Developed automated tooling for provisioning and managing mobile devices at scale
-        - Architected virtualized Android (AOSP) environments using ARM/QEMU for debugging and analysis
+        - Developed automated tooling for provisioning and managing large fleets of mobile devices
+        - Architected virtualized Android environments using ARM/QEMU for repeatable debugging, testing, and analysis
 
     - company: Students of Georgetown Inc.
       title: Software Engineer
       start_date: October 2015
       end_date: December 2017
       highlights:
-        - Led cloud migration, reducing costs 85% and improving reliability
+        - Led cloud infrastructure migration, reducing costs 85% and improving system reliability
+        - Modernized application infrastructure and production deployment workflows
 
     - company: Pigeonly
       title: Software Engineer
@@ -49,22 +51,14 @@ sections:
       end_date: May 2015
       highlights:
         - Built distributed search and data processing systems using Django and Celery
-        - Redesigned and migrated legacy systems from Symfony to scalable Django architecture
+        - Redesigned and migrated legacy Symfony systems to a scalable Django architecture
 
     - company: Atlas Research
       title: IT Analyst
       start_date: September 2012
       end_date: January 2014
       highlights:
-        - Supported enterprise system integration and production troubleshooting across environments
-
-    - company: Turtle Software
-      title: Freelance Developer
-      start_date: February 2010
-      end_date: August 2012
-      highlights:
-        - Analyzed and reverse engineered obfuscated binaries using static analysis and decompilation tools
-        - Built automation tools for interacting with complex software systems
+        - Supported enterprise system integration and production troubleshooting across multiple environments
 
   education:
     - institution: Quantic School of Business and Technology
@@ -74,10 +68,12 @@ sections:
 
   skills:
     - title: Languages
-      content: Python, TypeScript, Java, C, Bash
-    - title: Technologies
-      content: Django, FastAPI, React, Postgres, Docker
-    - title: Embedded
-      content: Firmware development (ESP32), IoT platforms, reverse engineering (Ghidra)
-    - title: Other
-      content: AOSP, ATAK ecosystem familiarity
+      content: Python, SQL, TypeScript, JavaScript, Java, PHP, Bash
+    - title: Data Engineering
+      content: ETL/ELT, Kafka, BigQuery, Databricks
+    - title: Cloud & Infrastructure
+      content: Azure, AWS, GCP, Docker, Terraform, CI/CD
+    - title: Backend & AI
+      content: Django, FastAPI, Celery, Azure Cognitive Services, RAG, vector search
+    - title: Certifications
+      content: Certified ScrumMaster, Certified Scrum Product Owner
